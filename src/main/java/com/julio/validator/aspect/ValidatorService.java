@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.julio.validator.models.CaseOne;
-import com.julio.validator.test.TestingCase1;
 
 @Service
 public class ValidatorService {

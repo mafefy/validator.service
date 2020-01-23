@@ -12,14 +12,16 @@ import org.aspectj.weaver.ast.Instanceof;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import com.julio.validator.models.CaseOne;
-import com.julio.validator.test.TestingCase1;
 
 @Aspect
 @Component
+@Configurable(preConstruction = true)
 public class ValidatorAspect {
 
 	private static final String MARKER = "@annotation(com.julio.validator.annotations.MyAnnotation)";

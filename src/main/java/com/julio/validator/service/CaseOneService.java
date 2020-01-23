@@ -3,12 +3,13 @@ package com.julio.validator.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import com.julio.validator.annotations.MyAnnotation;
 import com.julio.validator.models.CaseOne;
-import com.julio.validator.test.TestingCase1;
 
+//@ConfigurationProperties("service")
 @Service
 public class CaseOneService {
 

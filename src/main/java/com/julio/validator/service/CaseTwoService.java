@@ -1,6 +1,7 @@
 package com.julio.validator.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import com.julio.validator.annotations.MyAnnotation;
@@ -11,6 +12,7 @@ import com.julio.validator.models.CaseTwo;
 import java.util.ArrayList;
 import java.util.List;
 
+//@ConfigurationProperties("service")
 @Service
 public class CaseTwoService {
 
