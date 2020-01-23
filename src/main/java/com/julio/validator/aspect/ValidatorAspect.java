@@ -30,9 +30,35 @@ public class ValidatorAspect {
 	 * here catch case one
 	 */
 	@AfterReturning(pointcut = MARKER, returning = "returnObject")
-	public void processCaseOne(Object returnObject) {
+	public void caseOneAdvice(Object returnObject) {
+
+		if (returnObject instanceof List) {
+			processCaseTwo( (List<? extends Object>) returnObject);
+		} else if (returnObject instanceof Object) {
+			processCaseOne(returnObject);
+		}
+
+	}
+
+	private void processCaseOne(Object returnObject) {
+		System.out.println(" object only");
 		List<Field> fields = validatorService.findFields(returnObject);
 		validatorService.updateFileds(fields, returnObject);
+	}
+
+	/*
+	@AfterReturning(pointcut = MARKER, returning = "returnList")
+	public void caseTwoAdvice(List<? extends Object> returnList) {
+		processCaseTwo(returnList);
+	}
+	*/
+
+	private void processCaseTwo(List<? extends Object> returnList) {
+		System.out.println(" list of objectgs");
+		for (Object obj : returnList) {
+			List<Field> fields = validatorService.findFields(obj);
+			validatorService.updateFileds(fields, obj);
+		}
 	}
 
 }
