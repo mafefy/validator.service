@@ -53,7 +53,11 @@ public class ValidatorService {
 		for (Field field : fields) {
 			field.setAccessible(true);
 			try {
-				field.set(obj, null);
+				if ( field.getType() == Integer.class) {
+					field.set(obj, 0);
+				} else {					
+					field.set(obj, null);
+				}
 			} catch (IllegalArgumentException | IllegalAccessException e) {
 			}
 		}
