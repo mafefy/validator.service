@@ -3,25 +3,33 @@ package com.julio.validator.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.julio.validator.annotations.MyAnnotation;
 import com.julio.validator.models.AnyClass;
+import com.julio.validator.models.CaseTwo;
 import com.julio.validator.models.WrapperList;
 
+@Service
 public class CaseThreeService {
 
+	@MyAnnotation
+	public WrapperList getMyPlaceHere() {
 
-    //@MyAnnotation()
-    public WrapperList getMyPlaceHere(){
+		List<AnyClass> anyClassList = new ArrayList<AnyClass>();
 
-        List<AnyClass> anyClassList = new ArrayList<AnyClass>();
-        // call to DAO or other service returned information
-        // on List object . The annotation will read a response and update with null value or 0 if find a some properties
-        // defined on application.properties
+		for (int i = 1; i < 3; i++) {
+			AnyClass any = new AnyClass();
+			any.setBox("red box");
+			any.setCircle("cmall circle");
+			any.setNumber(343);
+			any.setSquare("nice square");
+			anyClassList.add(any);
+		}
 
-        WrapperList wrapper = new WrapperList();
-        wrapper.setMyList(anyClassList);
+		WrapperList wrapper = new WrapperList();
+		wrapper.setMyList(anyClassList);
 
-        //The annotation will be read a wrapper, get a list, iterate a list value for any object and update the values if
-        // found on application properties
-        return wrapper;
-    }
+		return wrapper;
+	}
 }

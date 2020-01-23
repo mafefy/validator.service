@@ -18,7 +18,7 @@ public class TestingCase1 implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("before calling service method");
+		logger.info("case 1 before calling service method");
 		CaseOne one = service.getMyPlace();
 		logger.info("after ->> age:" + one.getAge() + " name:" + one.getName() + " last name:" + one.getLastName());
 		
